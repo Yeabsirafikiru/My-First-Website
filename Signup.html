@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabian</title>
+    <link rel="stylesheet" href="index.css" type="text/css" media="all" />
+  </head>
+  <body>
+    <h1>SIGNUP</h1>
+    <form action="index.php" method="get" onsubmit="return validatePasswords()">
+      <label for="uname">Username</label>
+      <input type="text" name="uname" id="uname" placeholder="Enter..." required="" autofocus/>
+      <label for="email">Email</label>
+      <input type="email" name="email" id="email" placeholder="Enter..." required=""/>  
+      <div id="passwordbox">
+        <label for="password">Password:</label>
+          <input type="password" id="password" name="password" required>
+          <input type="checkbox" id="togglePassword">
+          <label for="confirmPassword">Confirm Password:</label>
+          <input type="password" id="confirmPassword" name="confirmPassword" required>
+          <input type="checkbox" id="togglePassworda">
+      </div>
+        <label for="gender">Gender</label>
+      <div id="genderdiv">
+        <label for="female">Female </label>
+        <input type="radio" name="female" id="female" required="" autofocus/>
+        <label for="male">Male </label>
+        <input type="radio" name="female" id="male" required="" autofocus/>
+      </div>
+      <label for="date">Birthday</label>
+      <input type="date" name="date" id="date" placeholder="Enter..." required max="2025-03-19" min="1950-01-01" value="2025-03-19"/>
+      <label for="phone">Phone number</label>
+      <input type="tel" id="phone" name="phone" placeholder="123-45-678" maxlength="13" required>
+        <span id="errorMessage" class="error"></span>
+      <div>
+      <input type="checkbox" name="accept" id="accept" required=""/>
+      <label for="accept">I agree to <a href="#">terms of use</a> and <a href="#">privacy policy</a></label>
+      </div>
+        <input type="reset" value="Reset"  style="color:red; width:50px; margin-bottom:-10px; margin-left:0px;"/>
+       <input type="submit" name="submit" id="submit" value="Signup"/>
+       <p style="color:red;">Below button is fake signup button real signup button id above thise paragraph</p>
+      <button><a href="verify.html">Signup</a></button>
+      <div>
+        <p>I have account | <a href="Login.html">LOGIN</a></p>
+      </div>
+    </form>
+     <script>
+        function validatePasswords() {
+            var password = document.getElementById("password").value;
+            var confirmPassword = document.getElementById("confirmPassword").value;
+            var errorMessage = document.getElementById("errorMessage");
+
+            if (password !== confirmPassword) {
+                errorMessage.textContent = "Passwords do not match!";
+                return false;
+            } else {
+                errorMessage.textContent = "";
+                return true;
+            }
+        }
+      var passwordField = document.getElementById("password");
+      const passwordFielda = document.getElementById("confirmPassword");
+        const togglePassword = document.getElementById("togglePassword");
+        const togglePassworda = document.getElementById("togglePassworda");
+
+        togglePassword.addEventListener("change", function() {
+            if (this.checked) {
+                passwordField.type = "text";
+            } else {
+                passwordField.type = "password";
+            }
+        });
+        togglePassworda.addEventListener("change", function() {
+            if (this.checked) {
+                passwordFielda.type = "text";
+            } else {
+                passwordFielda.type = "password";
+            }
+        });
+    </script>
+  </body>
+</html>
